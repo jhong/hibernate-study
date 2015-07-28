@@ -11,3 +11,7 @@ gradle-app.setting
 .settings/
 .classpath
 .project
+
+
+# osx
+.DS_Store
