@@ -1,0 +1,13 @@
+/bin/
+/build/
+
+# gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+
+# eclipse
+.settings/
+.classpath
+.project
