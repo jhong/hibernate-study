@@ -8,9 +8,9 @@ gradle-app.setting
 
 
 # eclipse
-.settings/
-.classpath
-.project
+#.settings/
+#.classpath
+#.project
 
 
 # osx
