@@ -5,7 +5,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value={"/code"})
 public class CodeController {
 
     /**
@@ -17,9 +16,10 @@ public class CodeController {
      * @return 
      * @throws Exception
      */
-    @RequestMapping(params="command=viewList")
+    @RequestMapping("/code")
 	public String viewList (ModelMap model) throws Exception {
     	model.addAttribute("codeName", "abcde");
+    	
     	// /WEB-INF/jsp/code/code_list.jsp
 		return "code/code_list";
 	}
