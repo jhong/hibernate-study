@@ -19,13 +19,21 @@ repositories {
 dependencies {
     
     compile 'commons-collections:commons-collections:3.2'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+    compile 'commons-lang:commons-lang:2.6'
+
     compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    compile 'org.springframework:spring-orm:4.1.6.RELEASE'
+    compile 'org.springframework:spring-test:4.1.6.RELEASE'
+    
+    compile 'org.hibernate:hibernate-core:4.3.6.Final'
 
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
 
     testCompile 'junit:junit:4.+'
     
     runtime 'jstl:jstl:1.2'
+    runtime fileTree(dir: 'lib/', include: 'ojdbc-14.jar')
     
 }
 
