@@ -36,7 +36,7 @@ public class CodeDao implements ICodeDao {
 	 * @return
 	 */
 	public int selectListCount(Map condition) {
-		Integer count = DataAccessUtils.intResult(hibernateTemplate.find("select count(*) from CodeVo"));
+		Integer count = DataAccessUtils.intResult(hibernateTemplate.find("select count(*) from CodeVo where codecategorykey='"+condition.get("codecategorykey")+"'"));
 		return count.intValue();
 	}
 	

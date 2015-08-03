@@ -42,8 +42,12 @@ public class CodeDaoTest {
 //		ctx.refresh();
 //		ICodeDao dao = ctx.getBean(ICodeDao.class);
   
-		int result = dao.selectListCount(null);
-		System.out.println("selectListCount() result="+result);
+		// parameters
+		Map condition = new HashMap();
+		condition.put("codecategorykey", "3039A");
+
+		int result = dao.selectListCount(condition);
+		logger.info("selectListCount() result={}", result);
 	}
 	
 	/**
