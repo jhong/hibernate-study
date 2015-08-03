@@ -1,7 +1,15 @@
 package net.study.code;
 
+import static org.junit.Assert.assertNotNull;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,8 +26,10 @@ import net.study.config.AppConfig;
 @Transactional
 public class CodeDaoTest {
 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
-	ICodeDao codeDao;
+	ICodeDao dao;
 
 	/**
 	 * selectListCount() test
@@ -32,7 +42,37 @@ public class CodeDaoTest {
 //		ctx.refresh();
 //		ICodeDao dao = ctx.getBean(ICodeDao.class);
   
-		int result = codeDao.selectListCount(null);
+		int result = dao.selectListCount(null);
 		System.out.println("selectListCount() result="+result);
+	}
+	
+	/**
+	 * selectListAll() test
+	 * @throws Exception
+	 */
+	@Test
+	public void selectListAll() throws Exception {
+		// parameters
+		Map condition = new HashMap();
+		condition.put("codecategorykey", "3039A");
+
+		List result = dao.selectListAll(condition);
+		logger.info("selectListAll() result={}", result);
+		assertNotNull(result); // smoke test
+	}
+
+	/**
+	 * selectDetail() test
+	 * @throws Exception
+	 */
+	@Test
+	public void selectDetail() throws Exception {
+		// parameters
+		Map condition = new HashMap();
+		condition.put("codecategorykey", "3039A");
+		condition.put("code", "ANLU");
+	
+		CodeVo result = dao.selectDetail(condition);
+		logger.info("selectDetail() result={}", result);
 	}
 }

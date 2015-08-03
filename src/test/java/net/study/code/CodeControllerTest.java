@@ -3,9 +3,13 @@ package net.study.code;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -25,6 +29,8 @@ import net.study.config.AppConfig;
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
 public class CodeControllerTest {
+
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private MockHttpServletRequest request; 
     private MockHttpServletResponse response; 
@@ -51,5 +57,23 @@ public class CodeControllerTest {
 		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
 		assertThat(mav.getViewName(), is("code/code_list"));
     }
+
+	/**
+	 * findDetail() test
+	 * @throws Exception
+	 */
+	@Test
+	public void findDetail() throws Exception {
+		
+		// parameters
+		request.setRequestURI("/code/ANLU");
+		
+		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
+		assertThat(mav.getViewName(), is("code/code_edit"));
+		
+		Map resultModelMap = mav.getModelMap();
+		Object codeVo = resultModelMap.get("codeVo");
+		logger.info("findDetail() codeVo={}", codeVo);
+	}
 
 }

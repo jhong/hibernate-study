@@ -18,7 +18,7 @@ public class CodeVo implements Serializable {
 	
 		
 	/** CODECATEGORYKEY */
-	@Id
+//	@Id
 	@Column(name="codecategorykey")
 	private String codecategorykey = "";
 	
