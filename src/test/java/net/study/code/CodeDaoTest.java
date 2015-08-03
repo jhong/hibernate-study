@@ -17,11 +17,11 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.study.config.AppConfig;
+import net.study.config.TestConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(classes = TestConfig.class)
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
 public class CodeDaoTest {
@@ -37,11 +37,7 @@ public class CodeDaoTest {
 	 */
 	@Test
 	public void selectListCount() throws Exception {
-//		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-//		ctx.register(AppConfig.class);
-//		ctx.refresh();
-//		ICodeDao dao = ctx.getBean(ICodeDao.class);
-  
+
 		// parameters
 		Map condition = new HashMap();
 		condition.put("codecategorykey", "3039A");

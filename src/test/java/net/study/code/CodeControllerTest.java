@@ -21,11 +21,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
-import net.study.config.AppConfig;
+import net.study.config.TestConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(classes = TestConfig.class)
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
 public class CodeControllerTest {

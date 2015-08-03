@@ -16,11 +16,11 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.study.config.AppConfig;
+import net.study.config.TestConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(classes = TestConfig.class)
 @TransactionConfiguration(defaultRollback = true)
 @Transactional
 public class CodeImplTest {
