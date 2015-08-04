@@ -119,10 +119,10 @@ public class CodeControllerTest {
 	public void modify() throws Exception {
 		
 		// parameters
-		request.setRequestURI("/codes/1");
+		request.setRequestURI("/codes");
 		request.setMethod("PUT");
-		request.setParameter("codecategorykey", "1");
-		request.setParameter("code", "1");
+		request.setParameter("codecategorykey", "TEST");
+		request.setParameter("code", "TEST01");
 
 		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
 		assertThat(mav.getViewName(), is("code/code_edit"));

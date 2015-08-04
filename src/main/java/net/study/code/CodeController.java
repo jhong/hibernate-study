@@ -141,10 +141,9 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping(value="/codes/{code}", method=RequestMethod.PUT)
+    @RequestMapping(value="/codes", method=RequestMethod.PUT)
 	public String modify (
 			@ModelAttribute("codeVo") CodeVo codeVo
- 			, @PathVariable("code") String code
 			, ModelMap model
 			) throws Exception {
 		
