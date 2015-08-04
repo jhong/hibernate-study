@@ -51,7 +51,7 @@ public class CodeControllerTest {
     @Test
     public void viewList() throws Exception {
 		// parameters
-		request.setRequestURI("/code");
+		request.setRequestURI("/codes");
 		request.setParameter("codecategorykey", "3039A");
 		
 		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
@@ -66,7 +66,7 @@ public class CodeControllerTest {
 	public void findDetail() throws Exception {
 		
 		// parameters
-		request.setRequestURI("/code/ANLU");
+		request.setRequestURI("/codes/ANLU");
 		
 		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
 		assertThat(mav.getViewName(), is("code/code_edit"));
@@ -84,7 +84,7 @@ public class CodeControllerTest {
 	public void entry() throws Exception {
 		
 		// parameters
-		request.setRequestURI("/code/new");
+		request.setRequestURI("/codes/new");
 		
 		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
 		assertThat(mav.getViewName(), is("code/code_edit"));
@@ -102,7 +102,7 @@ public class CodeControllerTest {
 	public void regist() throws Exception {
 		
 		// parameters
-		request.setRequestURI("/code");
+		request.setRequestURI("/codes");
 		request.setMethod("POST");
 		request.setParameter("codecategorykey", "1");
 		request.setParameter("code", "1");
@@ -119,7 +119,7 @@ public class CodeControllerTest {
 	public void modify() throws Exception {
 		
 		// parameters
-		request.setRequestURI("/code/1");
+		request.setRequestURI("/codes/1");
 		request.setMethod("PUT");
 		request.setParameter("codecategorykey", "1");
 		request.setParameter("code", "1");
@@ -136,7 +136,7 @@ public class CodeControllerTest {
 	public void delete() throws Exception {
 		
 		// parameters
-		request.setRequestURI("/code/TESTCODE");
+		request.setRequestURI("/codes/TESTCODE");
 		request.setMethod("DELETE");
 		request.setParameter("codecategorykey", "1");
 		request.setParameter("code", "TESTCODE");

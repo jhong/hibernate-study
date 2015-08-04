@@ -12,7 +12,7 @@ CodeVo codeVo = (CodeVo)request.getAttribute("codeVo");
 out.print("codeVo : "+codeVo);
 %>
 <hr/>
-<form:form commandName="codeVo" id="subForm" name="subForm" method="post" action="${pageContext.request.contextPath}/code.do">
+<form:form commandName="codeVo" id="subForm" name="subForm" method="post" action="${pageContext.request.contextPath}/codes">
 
 <ul>
 	<li>command : <input type="text" name="command" /></li>

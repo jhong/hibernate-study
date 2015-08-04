@@ -35,7 +35,7 @@ public class CodeController {
      * @return 
      * @throws Exception
      */
-    @RequestMapping("/code")
+    @RequestMapping("/codes")
 	public String viewList (ModelMap model
 			, @RequestParam(value="codecategorykey",required=false) String codecategorykey
 			, @RequestParam(value="code",required=false) String code
@@ -65,7 +65,7 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping("/code/{code}")
+    @RequestMapping("/codes/{code}")
  	public String findDetail (
  			ModelMap model
  			, @PathVariable("code") String code
@@ -91,7 +91,7 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping(value="/code/new")
+    @RequestMapping(value="/codes/new")
  	public String entry (
  			@ModelAttribute("codeVo") CodeVo codeVo
  			, ModelMap model
@@ -115,7 +115,7 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping(value="/code", method=RequestMethod.POST)
+    @RequestMapping(value="/codes", method=RequestMethod.POST)
 	public String regist (
 			@ModelAttribute("codeVo") CodeVo codeVo
 			, ModelMap model
@@ -141,7 +141,7 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping(value="/code/{code}", method=RequestMethod.PUT)
+    @RequestMapping(value="/codes/{code}", method=RequestMethod.PUT)
 	public String modify (
 			@ModelAttribute("codeVo") CodeVo codeVo
  			, @PathVariable("code") String code
@@ -164,7 +164,7 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping(value="/code/{code}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/codes/{code}", method=RequestMethod.DELETE)
 	public String delete (
 			ModelMap model
 			, @RequestParam(value="codecategorykey",required=false) String codecategorykey
