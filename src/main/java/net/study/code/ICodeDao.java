@@ -27,4 +27,37 @@ public interface ICodeDao {
 	 */
 	CodeVo selectDetail(Map condition) throws Exception;
 
+	/**
+	 * <pre>
+	 * 코드 등록
+	 * </pre>
+	 *
+	 * @param codeVo
+	 * @return int
+	 * @throws Exception
+	 */
+	int insert(CodeVo codeVo) throws Exception;
+
+	/**
+	 * <pre>
+	 * 코드 수정
+	 * </pre>
+	 *
+	 * @param codeVo
+	 * @return int
+	 * @throws Exception
+	 */
+	int update(CodeVo codeVo) throws Exception;
+
+	/**
+	 * <pre>
+	 * 코드 삭제
+	 * </pre>
+	 *
+	 * @param codeVo
+	 * @return int
+	 * @throws Exception
+	 */
+	int delete(CodeVo codeVo) throws Exception;
+
 }

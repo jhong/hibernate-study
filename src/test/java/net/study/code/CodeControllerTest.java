@@ -76,4 +76,73 @@ public class CodeControllerTest {
 		logger.info("findDetail() codeVo={}", codeVo);
 	}
 
+	/**
+	 * entry() test
+	 * @throws Exception
+	 */
+	@Test
+	public void entry() throws Exception {
+		
+		// parameters
+		request.setRequestURI("/code/new");
+		
+		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
+		assertThat(mav.getViewName(), is("code/code_edit"));
+		
+		Map resultModelMap = mav.getModelMap();
+		Object codeVo = resultModelMap.get("codeVo");
+		logger.debug("entry() codeVo={}", codeVo);
+	}
+
+	/**
+	 * regist() test
+	 * @throws Exception
+	 */
+	@Test
+	public void regist() throws Exception {
+		
+		// parameters
+		request.setRequestURI("/code");
+		request.setMethod("POST");
+		request.setParameter("codecategorykey", "1");
+		request.setParameter("code", "1");
+
+		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
+		assertThat(mav.getViewName(), is("code/code_edit"));
+	}
+
+	/**
+	 * modify() test
+	 * @throws Exception
+	 */
+	@Test
+	public void modify() throws Exception {
+		
+		// parameters
+		request.setRequestURI("/code/1");
+		request.setMethod("PUT");
+		request.setParameter("codecategorykey", "1");
+		request.setParameter("code", "1");
+
+		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
+		assertThat(mav.getViewName(), is("code/code_edit"));
+	}
+
+	/**
+	 * delete() test
+	 * @throws Exception
+	 */
+	@Test
+	public void delete() throws Exception {
+		
+		// parameters
+		request.setRequestURI("/code/TESTCODE");
+		request.setMethod("DELETE");
+		request.setParameter("codecategorykey", "1");
+		request.setParameter("code", "TESTCODE");
+
+		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
+		assertThat(mav.getViewName(), is("code/code_list"));
+	}
+
 }

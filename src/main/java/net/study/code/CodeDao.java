@@ -71,5 +71,52 @@ public class CodeDao implements ICodeDao {
 		return data;
 	}
 
+	/**
+	 * <pre>
+	 * 코드 등록
+	 * </pre>
+	 *
+	 * @param codeVo
+	 * @return int
+	 * @throws Exception
+	 */
+	public int insert(CodeVo codeVo) throws Exception {
+		Session session = this.sessionFactory.getCurrentSession();
+		Object result = session.save(codeVo);
+		logger.info("insert() end... result={}", result);
+		
+		if (result == null) return 0;
+		else return 1;
+	}
+
+	/**
+	 * <pre>
+	 * 코드 수정
+	 * </pre>
+	 *
+	 * @param codeVo
+	 * @return int
+	 * @throws Exception
+	 */
+	public int update(CodeVo codeVo) throws Exception {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.update(codeVo);
+		return 1;
+	}
+
+	/**
+	 * <pre>
+	 * 코드 삭제
+	 * </pre>
+	 *
+	 * @param codeVo
+	 * @return int
+	 * @throws Exception
+	 */
+	public int delete(CodeVo codeVo) throws Exception {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.delete(codeVo);
+		return 1;
+	}
 
 }
