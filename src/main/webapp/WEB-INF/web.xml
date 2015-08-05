@@ -3,8 +3,8 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-                        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-    version="3.0">
+                        http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd"
+    version="2.4">
     
 	<display-name>Hibernate Study</display-name>
 
@@ -30,13 +30,23 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>	
 	
-	<!-- PUT method 지원 위한 설정 -->
+	<!-- PUT method 지원 위한 설정 start -->
+	<filter>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<servlet-name>action</servlet-name>
+	</filter-mapping>
+		
 	<filter>
 		<filter-name>httpPutFormContentFilter</filter-name>
 		<filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>httpPutFormContentFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	 </filter-mapping>		
+		<servlet-name>action</servlet-name>
+	 </filter-mapping>
+	 <!-- PUT method 지원 위한 설정 end -->		
 </web-app>

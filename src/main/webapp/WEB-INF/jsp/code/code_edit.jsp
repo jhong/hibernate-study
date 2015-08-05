@@ -73,7 +73,7 @@ if (codeVo != null && codeVo.getCode() != null && !"".equals(codeVo.getCode())) 
 <%
 if (codeVo != null) {
 %>
-<form:form commandName="codeVo" id="deleteForm" name="deleteForm" method="DELETE" action="${pageContext.request.contextPath}/codes/<%=codeVo.getCode()%>">
+<form:form commandName="codeVo" id="deleteForm" name="deleteForm" method="DELETE" action="${pageContext.request.contextPath}/codes/${codeVo.code}">
 </form:form>
 <a href="#" onclick="doDelete();">[삭제]</a>
 <%

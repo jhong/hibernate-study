@@ -142,7 +142,8 @@ public class CodeControllerTest {
 		request.setParameter("code", "TESTCODE");
 
 		ModelAndView mav = new AnnotationMethodHandlerAdapter().handle(request, response, controller);
-		assertThat(mav.getViewName(), is("code/code_list"));
+//		assertThat(mav.getViewName(), is("code/code_list"));
+		assertThat(mav.getViewName(), is("redirect:/codes?codecategorykey=TEST"));
 	}
 
 }

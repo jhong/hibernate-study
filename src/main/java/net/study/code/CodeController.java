@@ -186,7 +186,8 @@ public class CodeController {
     	model.addAttribute("totalRow", result.get("totalRow"));
     	model.addAttribute("bizList", result.get("bizList"));
 
-		return "code/code_list";
+//		return "code/code_list";
+    	return "redirect:/codes?codecategorykey=TEST";
 	}
 
 }
