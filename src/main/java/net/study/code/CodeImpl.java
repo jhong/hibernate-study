@@ -116,8 +116,9 @@ public class CodeImpl implements CodeFacade {
 			Map bizData = (Map)selList.get(i);
 			
 			CodeVo vo = new CodeVo();
-			vo.setCodecategorykey(bizData.get("codecategorykey")+"");
-			vo.setCode(bizData.get("code")+"");
+			CodeId id = new CodeId(bizData.get("codecategorykey")+"", bizData.get("code")+"");
+			vo.setId(id);
+
 			
 			// 삭제
 			result += dao.delete(vo);

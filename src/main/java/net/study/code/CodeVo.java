@@ -3,9 +3,11 @@ package net.study.code;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -17,15 +19,8 @@ public class CodeVo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 		
-	/** CODECATEGORYKEY */
-//	@Id
-	@Column(name="codecategorykey")
-	private String codecategorykey = "";
-	
-	/** CODE */
-	@Id
-	@Column(name="code")
-	private String code = "";
+	@EmbeddedId
+	private CodeId id;
 	
 	/** CODEEXPLAIN */
 	@Column(name="codeexplain")
@@ -50,19 +45,27 @@ public class CodeVo implements Serializable {
 
 	
 	public String getCodecategorykey() {
-		return this.codecategorykey;
+		return this.id == null ? "" : id.getCodecategorykey();
 	}
 	
-	public void setCodecategorykey(String codecategorykey) {
-		this.codecategorykey = codecategorykey;
-	}
+//	public void setCodecategorykey(String codecategorykey) {
+//		this.codecategorykey = codecategorykey;
+//	}
 
 	public String getCode() {
-		return this.code;
+		return this.id == null ? "" : id.getCode();
 	}
-	
-	public void setCode(String code) {
-		this.code = code;
+//	
+//	public void setCode(String code) {
+//		this.code = code;
+//	}
+
+	public CodeId getId() {
+		return id;
+	}
+
+	public void setId(CodeId id) {
+		this.id = id;
 	}
 
 	public String getCodeexplain() {

@@ -67,7 +67,9 @@ public class CodeDao implements ICodeDao {
 	 */
 	public CodeVo selectDetail(Map condition) throws Exception {
 		Session session = this.sessionFactory.getCurrentSession();
-		CodeVo data = (CodeVo)session.get(CodeVo.class, condition.get("code")+"");
+		
+		CodeId id = new CodeId(condition.get("codecategorykey")+"", condition.get("code")+"");
+		CodeVo data = (CodeVo)session.get(CodeVo.class, id);
 		return data;
 	}
 

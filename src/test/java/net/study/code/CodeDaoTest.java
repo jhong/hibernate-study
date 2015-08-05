@@ -86,8 +86,11 @@ public class CodeDaoTest {
 	public void insert() throws Exception {
 		// parameters
 		CodeVo vo = new CodeVo();
-		vo.setCodecategorykey("TEST_CATEGORY");
-		vo.setCode("TEST_CODE_1");
+//		vo.setCodecategorykey("TEST_CATEGORY");
+//		vo.setCode("TEST_CODE_1");
+		CodeId id = new CodeId("TEST_CATEGORY", "TEST_CODE_1");
+		vo.setId(id);
+		
 		vo.setCodeexplain("코드설명");
 		vo.setCodename("코드명");
 		vo.setCodeengname("Code Name");
@@ -107,8 +110,11 @@ public class CodeDaoTest {
 	public void update() throws Exception {
 		// parameters
 		CodeVo vo = new CodeVo();
-		vo.setCodecategorykey("CODECATEGORYKEY");
-		vo.setCode("CODE");
+//		vo.setCodecategorykey("CODECATEGORYKEY");
+//		vo.setCode("CODE");
+		CodeId id = new CodeId("TEST_CATEGORY", "TEST_CODE_1");
+		vo.setId(id);
+
 		vo.setCodeexplain("CODEEXPLAIN");
 		vo.setCodename("CODENAME");
 		vo.setCodeengname("CODEENGNAME");
@@ -128,8 +134,10 @@ public class CodeDaoTest {
 	public void delete() throws Exception {
 		// parameters
 		CodeVo vo = new CodeVo();
-		vo.setCodecategorykey("CODECATEGORYKEY");
-		vo.setCode("CODE");
+//		vo.setCodecategorykey("CODECATEGORYKEY");
+//		vo.setCode("CODE");
+		CodeId id = new CodeId("TEST_CATEGORY", "TEST_CODE_1");
+		vo.setId(id);
 
 		int result = dao.delete(vo);
 		logger.debug("delete() result={}", result);

@@ -37,8 +37,7 @@ List bizList = (List)request.getAttribute("bizList");
 <%
 for (int i=0; bizList!=null && i<bizList.size(); i++) {
 	CodeVo data = (CodeVo)bizList.get(i);
-	//out.print("<br/>i="+i+", data="+data);
-	String url = contextPath+"/codes/"+data.getCode();
+	String url = contextPath+"/codes/"+data.getCodecategorykey()+"/"+data.getCode();
 	out.print("<tr>");
 	out.print("<td><a href='"+url+"'>"+i+"</a></td>");
 	out.print("<td>"+data.getCodecategorykey()+"</td>");

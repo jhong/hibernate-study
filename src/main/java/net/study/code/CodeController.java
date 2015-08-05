@@ -65,13 +65,15 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping("/codes/{code}")
+    @RequestMapping("/codes/{codecategorykey}/{code}")
  	public String findDetail (
  			ModelMap model
+ 			, @PathVariable("codecategorykey") String codecategorykey
  			, @PathVariable("code") String code
  			) throws Exception {
  		
     	Map condition = new HashMap();
+    	condition.put("codecategorykey", codecategorykey);
     	condition.put("code", code);
 
     	CodeVo codeVo = facade.findDetail(condition);
@@ -163,10 +165,10 @@ public class CodeController {
 	 * @return 
 	 * @throws Exception
 	 */
-    @RequestMapping(value="/codes/{code}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/codes/{codecategorykey}/{code}", method=RequestMethod.DELETE)
 	public String delete (
 			ModelMap model
-			, @RequestParam(value="codecategorykey",required=false) String codecategorykey
+ 			, @PathVariable("codecategorykey") String codecategorykey
  			, @PathVariable("code") String code
 			) throws Exception {
 
@@ -180,12 +182,11 @@ public class CodeController {
 		// 정보 삭제
 		int count = facade.delete(selList, null);
 		
-		// 리턴할 목록 조회
-    	Map result = facade.findList(bizData);
-    	
-    	model.addAttribute("totalRow", result.get("totalRow"));
-    	model.addAttribute("bizList", result.get("bizList"));
-
+//		// 리턴할 목록 조회
+//    	Map result = facade.findList(bizData);
+//    	
+//    	model.addAttribute("totalRow", result.get("totalRow"));
+//    	model.addAttribute("bizList", result.get("bizList"));
 //		return "code/code_list";
     	return "redirect:/codes?codecategorykey=TEST";
 	}

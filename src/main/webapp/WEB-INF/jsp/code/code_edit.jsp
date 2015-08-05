@@ -56,8 +56,8 @@ if (codeVo != null && codeVo.getCode() != null && !"".equals(codeVo.getCode())) 
 <form:form commandName="codeVo" id="subForm" name="subForm" method="<%=formMethod%>" action="${pageContext.request.contextPath}/codes">
 
 <ul>
-	<li>codecategorykey : <input type="text" name="codecategorykey" value="<%=codeVo.getCodecategorykey()%>"/></li>
-	<li>code : <form:input path="code" /></li>
+	<li>codecategorykey : <input type="text" name="id.codecategorykey" value="<%=codeVo.getCodecategorykey()%>"/></li>
+	<li>code : <form:input path="id.code" /></li>
 	<li>codeexplain : <form:input path="codeexplain" size="50"/></li>
 	<li>codename : <form:input path="codename" size="50"/></li>
 	<li>codeengname : <form:input path="codeengname" size="50"/></li>
@@ -67,13 +67,22 @@ if (codeVo != null && codeVo.getCode() != null && !"".equals(codeVo.getCode())) 
 </form:form>
 
 <hr/>
+<%
+if ("POST".equals(formMethod)) {
+%>
 <a href="#" onclick="doRegist();">[등록]</a>
+<%
+} else if ("PUT".equals(formMethod)) {
+%>
 <a href="#" onclick="doModify();">[수정]</a>
+<%
+}
+%>
 
 <%
 if (codeVo != null) {
 %>
-<form:form commandName="codeVo" id="deleteForm" name="deleteForm" method="DELETE" action="${pageContext.request.contextPath}/codes/${codeVo.code}">
+<form:form commandName="codeVo" id="deleteForm" name="deleteForm" method="DELETE" action="${pageContext.request.contextPath}/codes/${codeVo.id.codecategorykey}/${codeVo.id.code}">
 </form:form>
 <a href="#" onclick="doDelete();">[삭제]</a>
 <%

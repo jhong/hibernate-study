@@ -84,8 +84,11 @@ public class CodeImplTest {
 		// parameters
 		Map condition = new HashMap();
 		CodeVo vo = new CodeVo();
-		vo.setCodecategorykey("CODECATEGORYKEY");
-		vo.setCode("CODE");
+//		vo.setCodecategorykey("CODECATEGORYKEY");
+//		vo.setCode("CODE");
+		CodeId id = new CodeId("TEST_CATEGORY", "TEST_CODE_1");
+		vo.setId(id);
+
 		vo.setCodeexplain("CODEEXPLAIN");
 		vo.setCodename("CODENAME");
 		vo.setCodeengname("CODEENGNAME");
@@ -104,8 +107,11 @@ public class CodeImplTest {
 		// parameters
 		Map condition = new HashMap();
 		CodeVo vo = new CodeVo();
-		vo.setCodecategorykey("CODECATEGORYKEY");
-		vo.setCode("CODE");
+//		vo.setCodecategorykey("CODECATEGORYKEY");
+//		vo.setCode("CODE");
+		CodeId id = new CodeId("TEST_CATEGORY", "TEST_CODE_1");
+		vo.setId(id);
+
 		vo.setCodeexplain("CODEEXPLAIN");
 		vo.setCodename("CODENAME");
 		vo.setCodeengname("CODEENGNAME");
